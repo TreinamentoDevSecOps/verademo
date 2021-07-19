@@ -42,5 +42,5 @@ jobs:
           ls target || true
           java -jar pipeline-scan.jar -vid "${{secrets.VERACODE_API_ID}}" -vkey "${{secrets.VERACODE_API_KEY}}" -f "target/verademo-0.0.1-SNAPSHOT.jar" --fail_on_severity="Very High, High" || true
           zip -r verademo.zip target/*.war
-          java -jar pipeline-scan.jar -vid "${{secrets.VERACODE_API_ID}}" -vkey "${{secrets.VERACODE_API_KEY}}" -f "verademo.war" --fail_on_severity="Very High, High"
+          java -jar pipeline-scan.jar -vid "${{secrets.VERACODE_API_ID}}" -vkey "${{secrets.VERACODE_API_KEY}}" -f "verademo.zip" --fail_on_severity="Very High, High"
         working-directory: app
