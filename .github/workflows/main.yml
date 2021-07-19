@@ -34,7 +34,7 @@ jobs:
       - name: Download API WRAPPER
         run: |
           curl -O -L https://downloads.veracode.com/securityscan/pipeline-scan-LATEST.zip
-          unzip pipeline-scan-LATEST.zip
+          unzip -n pipeline-scan-LATEST.zip
       - name: Security scan
         run: |
           ls /app || true
