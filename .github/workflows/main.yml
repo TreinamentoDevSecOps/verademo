@@ -40,7 +40,10 @@ jobs:
           curl -O -L https://downloads.veracode.com/securityscan/pipeline-scan-LATEST.zip
           unzip -n pipeline-scan-LATEST.zip
           ls target || true
-          java -jar pipeline-scan.jar -vid "${{secrets.VERACODE_API_ID}}" -vkey "${{secrets.VERACODE_API_KEY}}" -f "target/verademo-0.0.1-SNAPSHOT.jar" --fail_on_severity="Very High, High" || true
+          
           zip -r verademo.zip target/*.war
-          java -jar pipeline-scan.jar -vid "${{secrets.VERACODE_API_ID}}" -vkey "${{secrets.VERACODE_API_KEY}}" -f "verademo.zip" --fail_on_severity="Very High, High"
+          java -jar pipeline-scan.jar -vid "${{secrets.VERACODE_API_ID}}" -vkey "${{secrets.VERACODE_API_KEY}}" -f "verademo.zip" 
         working-directory: app
+      - name: Deploy ficticio 
+        run: |
+          echo "Finish Deploy"  
