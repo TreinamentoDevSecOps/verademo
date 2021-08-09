@@ -35,6 +35,7 @@ jobs:
         run: |
           curl -O -L https://downloads.veracode.com/securityscan/pipeline-scan-LATEST.zip
           unzip -n pipeline-scan-LATEST.zip
+          rm -f pipeline-scan-LATEST.zip
       - name: Security scan
         run: |
           curl -O -L https://downloads.veracode.com/securityscan/pipeline-scan-LATEST.zip
